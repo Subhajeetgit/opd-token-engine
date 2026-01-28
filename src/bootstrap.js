@@ -37,12 +37,4 @@ allocationEngine.registerSlot(
 );
 
 
-// allocationEngine.registerSlot(
-//   new Slot({
-//     slotId: "D3-9-10",
-//     doctorId: "D3",
-//     startTime: "09:00",
-//     endTime: "10:00",
-//     capacity: 1
-//   })
-// );
+
