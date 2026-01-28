@@ -67,4 +67,34 @@ export class AllocationEngine{
         a.createdAt - b.createdAt
     );
   }
+
+
+  handleDoctorDelay(slotId, delayMinutes) {
+  const slot = this.slots.get(slotId);
+  if (!slot) {
+    throw new Error("Slot not found");
+  }
+
+  const AVG_CONSULT_TIME = 10; 
+  const overflowCount = Math.floor(delayMinutes / AVG_CONSULT_TIME);
+
+  if (overflowCount <= 0) return [];
+
+  
+  this.sort(slot.activeTokens);
+
+  
+  const displacedTokens = slot.activeTokens.splice(
+    -overflowCount,
+    overflowCount
+  );
+
+  
+  displacedTokens.forEach(token => {
+    slot.waitingQueue.unshift(token);
+  });
+
+  return displacedTokens;
+}
+
 }
