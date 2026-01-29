@@ -260,7 +260,7 @@ Prerequisites
 Node.js (v18+ recommended)
 
 Steps
-git clone <repo-link>
+git clone https://github.com/Subhajeetgit/opd-token-engine
 cd opd-token-engine
 npm install
 node src/index.js
